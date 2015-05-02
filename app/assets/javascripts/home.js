@@ -7,11 +7,11 @@ $(document).ready(function(){
       alert("Sorry! Couldn't Load Campaign");
     },
     success: function(data){
+      var template = $("#campaign-listing-template").html();
       for(var i = 0; i < data.length; i++){
-        campaign = data[i];
-        $("body").append(campaign.title);
-        $("body").append(campaign.description);
-        $("body").append("<hr>");
+        var campaign = data[i];
+        var html = Mustache.render(template, campaign);
+        $(".campaigns").append(html);
       }
     },
   })
