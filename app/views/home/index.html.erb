@@ -1,10 +1,27 @@
 <script id="campaign-listing-template" type="x-tmpl-mustache">
   <div class="campaign">
-    <h2>{{title}}</h2>
+    <h2><a href="javascript:void(0);" data-id="{{id}}">{{title}}</a></h2>
     <p>{{description}}</p>
   </div>
+</script>
+<script id="single-campaign-template" type="x-tmpl-mustache">
+  <div class="show-campaign">
+    <p>{{campaign.title}}</p>
+    <p>{{campaign.description}}</p>
+    <p>{{campaign.aasm_state}}</p>
+    <p>{{campaign.goal}}</p>
+    <p>{{campaign.ends_on}}</p>
+    <h3>Reward Levels</h3>
+    <div class="reward-levels"></div>
+    <hr>
+  </div>
+</script>
+<script id="reward-levels-template" type="x-tmpl-mustache">
+  <p>${{amount}}</p>
+  <p>{{description}}</p>
 </script>
 
 <h1>Fundsy API Client</h1>
 
+<div class="single-campaign"></div>
 <div class="campaigns"></div>
