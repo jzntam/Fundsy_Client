@@ -28,14 +28,19 @@ $(document).ready(function(){
         var singleCampaignsTemplate = $("#single-campaign-template").html();
         var html = Mustache.render(singleCampaignsTemplate, data);
         $(".campaigns").fadeOut("slow", function(){
-          $(".single-campaign").html(''); 
-          $(".single-campaign").append(html);
+          $(".single-campaign").html(html);
+          $(".single-campaign").fadeIn();
           var reward_levels = data.reward_levels;
           var rewardLevelsTemplate = $("#reward-levels-template").html();
           for(var i = 0; i < reward_levels.length; i++){
             var reward_html = Mustache.render(rewardLevelsTemplate, reward_levels[i]);
             $(".reward-levels").append(reward_html);
           }
+          $("#back-button").on("click", function(){
+            $(".single-campaign").fadeOut("fast", function(){
+              $(".campaigns").fadeIn();
+            });
+          });
         });
       }
     });
