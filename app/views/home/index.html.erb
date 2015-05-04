@@ -1,28 +1,61 @@
 <script id="campaign-listing-template" type="x-tmpl-mustache">
-  <div class="campaign">
-    <h2><a href="javascript:void(0);" data-id="{{id}}">{{title}}</a></h2>
-    <p>{{description}}</p>
+  <div class="ui purple segment">
+    <div class="campaign">
+      <h2 class="ui header"><a href="javascript:void(0);" data-id="{{id}}">{{title}}</a></h2>
+      <p>{{description}}</p>
+    <br>
+    </div>
   </div>
 </script>
 <script id="single-campaign-template" type="x-tmpl-mustache">
   <div class="show-campaign">
-    <a id="back-button" href="javascript:void(0);">BACK</a>
-    <p>{{campaign.title}}</p>
-    <p>{{campaign.description}}</p>
-    <p>{{campaign.aasm_state}}</p>
-    <p>{{campaign.goal}}</p>
-    <p>{{campaign.ends_on}}</p>
-    <h3>Reward Levels</h3>
-    <div class="reward-levels"></div>
-    <hr>
+    <a id="back-button" href="javascript:void(0);">
+      <div class="ui animated teal button">
+        <div class="visible content">Back</div>
+        <div class="hidden content">
+          <i class="left arrow icon"></i>
+        </div>
+      </div>
+    </a>
+    <div class="ui raised segment">
+      <div class="ui two column grid">
+        <div class="column">
+          <h3 class="ui header">{{campaign.title}}</h3>
+          <p>{{campaign.description}}</p>
+          <p>{{campaign.aasm_state}}</p>
+          <p>$ {{campaign.goal}}</p>
+          <p>{{campaign.ends_on}}</p>
+        </div>
+        <div class="column">
+          <h3 class="ui header">Reward Levels</h3>
+          <div class="reward-levels"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </script>
 <script id="reward-levels-template" type="x-tmpl-mustache">
-  <p>${{amount}}</p>
-  <p>{{description}}</p>
+  <div class="ui teal message">
+    <p>$ {{amount}}</p>
+    <p>{{description}}</p>
+  </div>
 </script>
 
-<h1>Fundsy API Client</h1>
+<div class="ui inverted blue vertical segment">
+  <div class="ui page grid">
+    <div class="column">
+      <h2 class="ui inverted header">Fundsy API Client</h2>
+      <p>The Fundsy Access Point</p>
+    </div>
+  </div>
+</div>
+<div class="ui vertical segment">
+  <div class="ui page grid">
+    <div class="column">
+      <div class="single-campaign"></div>
+      <div class="campaigns"></div>
+    </div>
+  </div>
+</div>
 
-<div class="single-campaign"></div>
-<div class="campaigns"></div>
+
