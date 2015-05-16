@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $.ajax({
-    url: "http://localhost:3000/campaigns.json",
+    url: "https://launch-igniter.herokuapp.com/campaigns.json",
     dataType: "json",
     method: "get",
     error: function(){
@@ -17,7 +17,7 @@ $(document).ready(function(){
   });
   $(".campaigns").on("click", ".campaign h2 a", function(){
     var id = $(this).data("id");
-    var show_url = "http://localhost:3000/campaigns/" + id + ".json"; 
+    var show_url = "https://launch-igniter.herokuapp.com/campaigns/" + id + ".json";
     $.ajax({
       url: show_url,
       method: "get",
